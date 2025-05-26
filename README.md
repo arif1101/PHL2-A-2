@@ -16,3 +16,16 @@ PostgreSQL was developed at the Computer Science Department of the University of
 - **Extensible:** You can create your own data types, functions, and more.
 - **Supports JSON & XML:** Handles both structured and semi-structured data.
 - **Cross-Platform:** Runs on Linux, Windows, macOS, and more.
+
+## Q-2. What is the purpose of a database schema in PostgreSQL?
+
+A schema is like a folder inside your PostgreSQL database.
+
+Just as you organize different types of files into folders on your computer, PostgreSQL organizes tables, views, and other objects into schemas.
+
+### Why is a Schema Useful?
+
+- **Organize things:** Keeps your database neat and clean.
+- **Avoid name conflicts:** You can use the same table name in different schemas.
+- **Set permissions:** Control who can see or change what’s inside a schema.
+- **Work safely:** Different teams or users can work in separate schemas without interfering with each other.
