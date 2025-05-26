@@ -61,3 +61,32 @@ CREATE TABLE employees (
 );
 ```
 Here, `person_id` in the `employees` table is a Foreign Key. It links each employee to a person in the `persons` table.
+
+## Q-4. What is the difference between the VARCHAR and CHAR data types?
+
+Both `VARCHAR` and `CHAR` are used to store text (strings) in PostgreSQL, but they handle storage and space differently.
+
+**CHAR(n):**
+- Fixed-size text.
+- If you define `CHAR(5)`, it always uses 5 characters.
+- If you insert fewer than 5 letters, it adds spaces to fill the length.
+
+**Example:**
+```sql
+CREATE TABLE students (
+  name CHAR(5)
+);
+-- If you insert 'Arif', it becomes: 'Arif ' (with 1 space)
+```
+
+**VARCHAR(n):**
+- Variable-size text.
+- If you define `VARCHAR(5)`, it can use 1 to 5 characters. It does not add spaces.
+  
+**Example:**
+```sql
+CREATE TABLE students (
+  name VARCHAR(5)
+);
+-- If you insert 'Arif', it stays as 'Arif' (no extra spaces)
+```
