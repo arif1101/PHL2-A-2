@@ -29,3 +29,35 @@ Just as you organize different types of files into folders on your computer, Pos
 - **Avoid name conflicts:** You can use the same table name in different schemas.
 - **Set permissions:** Control who can see or change what’s inside a schema.
 - **Work safely:** Different teams or users can work in separate schemas without interfering with each other.
+
+## Q-3. Explain PK (Primary Key) and FK (Foreign Key)
+
+**Primary Key (PK):**  
+A Primary Key is like a unique ID for each row in a table.
+- Each row must be different (unique).
+- The key cannot be empty (NOT NULL).
+
+**Example:**
+```sql
+CREATE TABLE persons (
+  person_id SERIAL PRIMARY KEY,
+  name TEXT
+);
+```
+Here, `person_id` is the Primary Key. It gives each person a unique number like 1, 2, 3, etc.
+
+---
+
+**Foreign Key (FK):**  
+A Foreign Key is used to connect two tables.
+- It is a column in one table that refers to the Primary Key in another table.
+
+**Example:**
+```sql
+CREATE TABLE employees (
+  employee_id SERIAL PRIMARY KEY,
+  name TEXT,
+  person_id INT REFERENCES persons(person_id) NOT NULL
+);
+```
+Here, `person_id` in the `employees` table is a Foreign Key. It links each employee to a person in the `persons` table.
