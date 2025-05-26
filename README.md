@@ -90,3 +90,17 @@ CREATE TABLE students (
 );
 -- If you insert 'Arif', it stays as 'Arif' (no extra spaces)
 ```
+
+## Q-5. Explain the purpose of the WHERE clause in a SELECT statement.
+
+The `WHERE` clause is used to filter data in a SQL query.
+
+- `SELECT` retrieves all data from a table.
+- `WHERE` adds a condition to return only the rows that meet the specified criteria.
+
+**Example:**
+```sql
+SELECT * FROM students
+WHERE age > 21;
+```
+This query returns only the students whose age is greater than 21.
