@@ -1,58 +1,58 @@
-## Q-1. What is PostgreSQL?
+## Q-1. PostgreSQL কী?
 
-PostgreSQL is a free, open-source database system that supports both relational (SQL) and non-relational (JSON) queries.  
-It is widely used as a back-end database for dynamic websites and web applications, financial systems, scientific and research databases, as well as mobile and IoT apps.
+PostgreSQL একটি ফ্রি, ওপেন-সোর্স ডেটাবেস সিস্টেম যা রিলেশনাল (SQL) এবং নন-রিলেশনাল (JSON) উভয় ধরনের কুয়েরি সাপোর্ট করে।  
+এটি ডায়নামিক ওয়েবসাইট ও ওয়েব অ্যাপ্লিকেশন, ফাইন্যান্সিয়াল সিস্টেম, গবেষণা ডেটাবেস, এবং মোবাইল ও IoT অ্যাপে ব্যাপকভাবে ব্যবহৃত হয়।
 
-**PostgreSQL supports many programming languages:** Python, Java, C/C++, C#, Node.js, Go, Ruby, Perl, and Tcl.
+**PostgreSQL অনেক প্রোগ্রামিং ভাষা সাপোর্ট করে:** Python, Java, C/C++, C#, Node.js, Go, Ruby, Perl, এবং Tcl।
 
-PostgreSQL was developed at the Computer Science Department of the University of California, Berkeley.
+PostgreSQL তৈরি হয়েছে ক্যালিফোর্নিয়া বিশ্ববিদ্যালয়, বার্কলির কম্পিউটার সায়েন্স ডিপার্টমেন্টে।
 
-### Key Features
+### মূল বৈশিষ্ট্যসমূহ
 
-- **Open-Source:** Free to use, modify, and distribute.
-- **Relational:** Uses tables with rows and columns to store data.
-- **SQL & Advanced Queries:** Supports standard SQL and advanced querying capabilities.
-- **ACID Compliant:** Ensures data integrity through Atomicity, Consistency, Isolation, and Durability.
-- **Extensible:** You can create your own data types, functions, and more.
-- **Supports JSON & XML:** Handles both structured and semi-structured data.
-- **Cross-Platform:** Runs on Linux, Windows, macOS, and more.
+- **ওপেন-সোর্স:** ফ্রি, পরিবর্তন করা যায়。
+- **রিলেশনাল:** টেবিল, রো ও কলামের মাধ্যমে ডেটা সংরক্ষণ。
+- **SQL ও অ্যাডভান্সড কুয়েরি:** স্ট্যান্ডার্ড SQL ও উন্নত কুয়েরি সাপোর্ট。
+- **ACID কমপ্লায়েন্ট:** ডেটার নিরাপত্তা ও ইন্টেগ্রিটি নিশ্চিত করে。
+- **এক্সটেনসিবল:** নিজের ডেটা টাইপ, ফাংশন ইত্যাদি তৈরি করা যায়。
+- **JSON ও XML সাপোর্ট:** স্ট্রাকচার্ড ও সেমি-স্ট্রাকচার্ড ডেটা হ্যান্ডেল করতে পারে。
+- **ক্রস-প্ল্যাটফর্ম:** Linux, Windows, macOS ইত্যাদিতে চলে।
 
-## Q-2. What is the purpose of a database schema in PostgreSQL?
+## Q-2. PostgreSQL-এ ডেটাবেস স্কিমার উদ্দেশ্য কী?
 
-A schema is like a folder inside your PostgreSQL database.
+একটি স্কিমা হলো PostgreSQL ডেটাবেসের ভিতরের একটি ফোল্ডারের মতো।
 
-Just as you organize different types of files into folders on your computer, PostgreSQL organizes tables, views, and other objects into schemas.
+যেমন কম্পিউটারে বিভিন্ন ফাইল আলাদা ফোল্ডারে রাখে, PostgreSQL-এ টেবিল, ভিউ, ও অন্যান্য অবজেক্ট স্কিমার মাধ্যমে সংগঠিত হয়।
 
-### Why is a Schema Useful?
+### স্কিমা কেন দরকার?
 
-- **Organize things:** Keeps your database neat and clean.
-- **Avoid name conflicts:** You can use the same table name in different schemas.
-- **Set permissions:** Control who can see or change what’s inside a schema.
-- **Work safely:** Different teams or users can work in separate schemas without interfering with each other.
+- **সংগঠিত রাখা:** ডেটাবেস পরিষ্কার ও গোছানো থাকে。
+- **নাম কনফ্লিক্ট এড়ানো:** আলাদা স্কিমায় একই টেবিলের নাম ব্যবহার করা যায়。
+- **পারমিশন সেট করা:** কে কী দেখতে বা পরিবর্তন করতে পারবে তা নিয়ন্ত্রণ করা যায়。
+- **নিরাপদে কাজ:** আলাদা টিম বা ইউজার আলাদা স্কিমায় কাজ করতে পারে, একে অপরের কাজে বাধা না দিয়ে।
 
-## Q-3. Explain PK (Primary Key) and FK (Foreign Key)
+## Q-3. PK (Primary Key) ও FK (Foreign Key) ব্যাখ্যা করুন
 
 **Primary Key (PK):**  
-A Primary Key is like a unique ID for each row in a table.
-- Each row must be different (unique).
-- The key cannot be empty (NOT NULL).
+প্রাইমারি কি হলো টেবিলের প্রতিটি রো-এর জন্য ইউনিক আইডি。
+- প্রতিটি রো আলাদা (ইউনিক) হতে হবে。
+- এটি কখনো ফাঁকা (NOT NULL) হতে পারবে না।
 
-**Example:**
+**উদাহরণ:**
 ```sql
 CREATE TABLE persons (
   person_id SERIAL PRIMARY KEY,
   name TEXT
 );
 ```
-Here, `person_id` is the Primary Key. It gives each person a unique number like 1, 2, 3, etc.
+এখানে `person_id` হলো প্রাইমারি কি। এটি প্রতিটি ব্যক্তিকে ১, ২, ৩ ইত্যাদি ইউনিক নম্বর দেয়।
 
 ---
 
 **Foreign Key (FK):**  
-A Foreign Key is used to connect two tables.
-- It is a column in one table that refers to the Primary Key in another table.
+foreign key দুইটি টেবিলকে সংযুক্ত করতে ব্যবহৃত হয়。
+- এটি এক টেবিলের একটি কলাম, যা অন্য টেবিলের প্রাইমারি কি-কে রেফার করে।
 
-**Example:**
+**উদাহরণ:**
 ```sql
 CREATE TABLE employees (
   employee_id SERIAL PRIMARY KEY,
@@ -60,47 +60,47 @@ CREATE TABLE employees (
   person_id INT REFERENCES persons(person_id) NOT NULL
 );
 ```
-Here, `person_id` in the `employees` table is a Foreign Key. It links each employee to a person in the `persons` table.
+এখানে `employees` টেবিলের `person_id` হলো foreign key। এটি প্রতিটি কর্মচারীকে `persons` টেবিলের একজন ব্যক্তির সাথে যুক্ত করে।
 
-## Q-4. What is the difference between the VARCHAR and CHAR data types?
+## Q-4. VARCHAR এবং CHAR ডেটা টাইপের মধ্যে পার্থক্য কী?
 
-Both `VARCHAR` and `CHAR` are used to store text (strings) in PostgreSQL, but they handle storage and space differently.
+`VARCHAR` ও `CHAR` দুটোই টেক্সট (স্ট্রিং) সংরক্ষণে ব্যবহৃত হয়, তবে এদের স্টোরেজ ও স্পেস ব্যবস্থাপনা আলাদা।
 
 **CHAR(n):**
-- Fixed-size text.
-- If you define `CHAR(5)`, it always uses 5 characters.
-- If you insert fewer than 5 letters, it adds spaces to fill the length.
+- নির্দিষ্ট আকারের টেক্সট。
+- যেমন `CHAR(5)` দিলে, সবসময় ৫টি ক্যারেক্টার ব্যবহার করবে。
+- কম ক্যারেক্টার দিলে, বাকি অংশ স্পেস দিয়ে পূরণ করবে।
 
-**Example:**
+**উদাহরণ:**
 ```sql
 CREATE TABLE students (
   name CHAR(5)
 );
--- If you insert 'Arif', it becomes: 'Arif ' (with 1 space)
+-- 'Arif' দিলে হবে: 'Arif ' (১টি স্পেসসহ)
 ```
 
 **VARCHAR(n):**
-- Variable-size text.
-- If you define `VARCHAR(5)`, it can use 1 to 5 characters. It does not add spaces.
+- পরিবর্তনশীল আকারের টেক্সট。
+- যেমন `VARCHAR(5)` দিলে, ১ থেকে ৫টি ক্যারেক্টার হতে পারে। বাড়তি স্পেস যোগ হয় না。
   
-**Example:**
+**উদাহরণ:**
 ```sql
 CREATE TABLE students (
   name VARCHAR(5)
 );
--- If you insert 'Arif', it stays as 'Arif' (no extra spaces)
+-- 'Arif' দিলে থাকবে: 'Arif' (কোনো বাড়তি স্পেস নয়)
 ```
 
-## Q-5. Explain the purpose of the WHERE clause in a SELECT statement.
+## Q-5. SELECT স্টেটমেন্টে WHERE ক্লজের উদ্দেশ্য কী?
 
-The `WHERE` clause is used to filter data in a SQL query.
+`WHERE` ক্লজ SQL কুয়েরিতে ডেটা ফিল্টার করতে ব্যবহৃত হয়।
 
-- `SELECT` retrieves all data from a table.
-- `WHERE` adds a condition to return only the rows that meet the specified criteria.
+- `SELECT` টেবিলের সব ডেটা রিটার্ন করে。
+- `WHERE` নির্দিষ্ট শর্ত দিয়ে শুধু চাওয়া রো-গুলো রিটার্ন করে।
 
-**Example:**
+**উদাহরণ:**
 ```sql
 SELECT * FROM students
 WHERE age > 21;
 ```
-This query returns only the students whose age is greater than 21.
+এই কুয়েরি শুধু তাদেরই দেখাবে, যাদের বয়স ২১-এর বেশি।
