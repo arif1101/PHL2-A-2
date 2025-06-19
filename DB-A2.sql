@@ -33,12 +33,12 @@ CREATE TABLE sightings (
     sighting_id SERIAL PRIMARY KEY,
     species_id INT REFERENCES species (species_id) NOT NULL,
     ranger_id INT REFERENCES rangers (ranger_id) NOT NULL,
-    sightings_time TIMESTAMP NOT NULL,
     location VARCHAR(100) NOT NULL,
+    sighting_time TIMESTAMP NOT NULL,
     notes TEXT DEFAULT NULL
 );
 
-INSERT INTO sightings (ranger_id, species_id, sightings_time, location, notes) VALUES
+INSERT INTO sightings (ranger_id, species_id, sighting_time, location, notes) VALUES
 (1, 1, '2024-05-01 08:30:00', 'Northern Hills', 'Observed near riverbank'),
 (1, 1, '2024-05-02 09:00:00', 'Northern Hills', 'Seen resting under tree'),
 (2, 2, '2024-05-03 14:15:00', 'River Delta', 'Tracks found near water'),
@@ -67,7 +67,7 @@ SELECT
     species_id,
     ranger_id,
     location,
-    sightings_time,
+    sighting_time,
     notes
 FROM sightings
 WHERE
@@ -95,12 +95,12 @@ WHERE
 -- problem - 6
 SELECT 
     sp.common_name, 
-    si.sightings_time, 
+    si.sighting_time, 
     r.name
 FROM sightings si
 JOIN species sp ON si.species_id = sp.species_id
 JOIN rangers r ON si.ranger_id = r.ranger_id
-ORDER BY si.sightings_time DESC
+ORDER BY si.sighting_time DESC
 LIMIT 2;
 
 -- problem - 7
@@ -116,24 +116,11 @@ WHERE
 SELECT
     sighting_id,
     CASE
-        WHEN EXTRACT(
-            HOUR
-            FROM sightings_time
-        ) < 12 THEN 'Morning'
-        WHEN EXTRACT(
-            HOUR
-            FROM sightings_time
-        ) >= 12
-        AND EXTRACT(
-            HOUR
-            FROM sightings_time
-        ) < 17 THEN 'Afternoon'
-        ELSE 'Evening'
-    END AS time_of_day
+    WHEN EXTRACT(HOUR FROM sighting_time) < 12 THEN 'Morning'
+    WHEN EXTRACT(HOUR FROM sighting_time) < 18 THEN 'Afternoon'
+    ELSE 'Evening'
+END AS time_of_day
 FROM sightings;
-
-
-SELECT * from sightings;
 
 -- prolem - 9
 -- Delete rangers who have never sighted any species
